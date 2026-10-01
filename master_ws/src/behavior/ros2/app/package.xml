@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>executor</name>
+  <version>0.2.0</version>
+  <description>ROS 2 adapter for the transport-neutral behavior executor.</description>
+  <maintainer email="dev@example.com">dev</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>behaviortree_cpp</depend>
+  <depend>framework</depend>
+  <depend>bt_nodes</depend>
+  <depend>ament_index_cpp</depend>
+  <depend>std_msgs</depend>
+  <exec_depend>bt_capability_plugins</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

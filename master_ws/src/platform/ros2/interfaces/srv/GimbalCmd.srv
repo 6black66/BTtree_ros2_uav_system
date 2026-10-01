@@ -1,0 +1,8 @@
+# 吊舱控制(各行为 → Controller)
+string command              # point / preset_search / zoom / freeze
+float64 yaw_deg
+float64 pitch_deg
+float64 zoom
+---
+bool ok
+string message

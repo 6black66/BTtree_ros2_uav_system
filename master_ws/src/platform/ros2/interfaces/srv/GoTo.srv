@@ -1,0 +1,8 @@
+# 转场:飞往指定点(任务管理/地面站 → Controller)
+float64 lat
+float64 lon
+float32 alt_m
+float32 radius_m            # 到位判定半径
+---
+bool ok
+string message

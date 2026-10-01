@@ -1,0 +1,11 @@
+{
+  "kind": "phase",
+  "name": "phase_refind",
+  "tree": "phase_refind.xml",
+  "libs": [
+    "libbt_refind_nodes.so",
+    "libbt_observe_nodes.so",
+    "libbt_controller_nodes.so",
+    "libbt_scene_nodes.so"
+  ]
+}

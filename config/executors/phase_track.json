@@ -1,0 +1,11 @@
+{
+  "kind": "phase",
+  "name": "phase_track",
+  "tree": "phase_track.xml",
+  "libs": [
+    "libbt_track_nodes.so",
+    "libbt_observe_nodes.so",
+    "libbt_controller_nodes.so",
+    "libbt_scene_nodes.so"
+  ]
+}

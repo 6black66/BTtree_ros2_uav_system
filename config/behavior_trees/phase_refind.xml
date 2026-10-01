@@ -1,0 +1,11 @@
+<root BTCPP_format="4">
+  <!-- 跟踪目标丢失后的局部重发现；成功后重新进入 track，失败回 standby。 -->
+  <BehaviorTree ID="PhaseRefind">
+    <Sequence>
+      <SceneSync name="sync_refind_scene"/>
+      <ControllerGimbal name="gimbal_local_search" command="local_search"/>
+      <RefindAction name="plan_local_refind" id="refind" goal="{track_state}" result="{refind_plan}"/>
+      <ObserveAction name="observe_refind_boxes" id="observe" goal="{refind_plan}" result="{confirmed}"/>
+    </Sequence>
+  </BehaviorTree>
+</root>

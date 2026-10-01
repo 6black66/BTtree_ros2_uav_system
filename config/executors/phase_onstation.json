@@ -1,0 +1,10 @@
+{
+  "kind": "phase",
+  "name": "phase_onstation",
+  "tree": "phase_onstation.xml",
+  "libs": [
+    "libbt_controller_nodes.so",
+    "libbt_scene_nodes.so",
+    "libbt_mission_nodes.so"
+  ]
+}

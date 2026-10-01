@@ -1,0 +1,10 @@
+{
+  "kind": "phase",
+  "name": "phase_report",
+  "tree": "phase_report.xml",
+  "libs": [
+    "libbt_report_nodes.so",
+    "libbt_scene_nodes.so",
+    "libbt_mission_nodes.so"
+  ]
+}

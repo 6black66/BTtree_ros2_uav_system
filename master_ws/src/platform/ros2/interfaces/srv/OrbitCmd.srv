@@ -1,0 +1,7 @@
+# 建立圆盘旋(就位阶段 → Controller)
+float64 center_lat
+float64 center_lon
+float32 radius_m
+---
+bool ok
+string message

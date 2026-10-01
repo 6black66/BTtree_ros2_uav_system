@@ -1,0 +1,9 @@
+{
+  "standby":   { "SUCCESS": "approch",   "FAILURE": "standby", "ERROR": "standby" },
+  "approch":   { "SUCCESS": "onstation", "FAILURE": "standby", "ERROR": "standby" },
+  "onstation": { "SUCCESS": "find",      "FAILURE": "standby", "ERROR": "standby" },
+  "find":      { "SUCCESS": "track",     "FAILURE": "standby", "ERROR": "standby" },
+  "track":     { "SUCCESS": "report",    "LOST": "refind", "FAILURE": "standby", "ERROR": "standby" },
+  "refind":    { "SUCCESS": "track",     "FAILURE": "standby", "ERROR": "standby" },
+  "report":    { "SUCCESS": "standby",   "FAILURE": "standby", "ERROR": "standby" }
+}

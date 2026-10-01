@@ -1,0 +1,9 @@
+# 通用行为任务(BehaviorCall → 各行为进程)
+# 骨架阶段用统一的 json 负载;行为成熟后替换为强类型 action
+string behavior             # find / observe / track / refind / report
+string goal_json            # 输入:目标/候选/模式等
+---
+bool ok
+string result_json          # 输出:候选/确认/跟踪态/上报回执等
+---
+string progress_json        # 进度反馈

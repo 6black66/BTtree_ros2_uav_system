@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>bringup</name>
+  <version>0.2.0</version>
+  <description>ROS 2 composition and deployment adapter for UAV executors.</description>
+  <maintainer email="dev@example.com">dev</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>executor</exec_depend>
+  <exec_depend>mission_executor_ros2</exec_depend>
+  <exec_depend>flight_controller_ros2</exec_depend>
+  <exec_depend>video_gateway_ros2</exec_depend>
+  <exec_depend>find_executor_ros2</exec_depend>
+  <exec_depend>observe_executor_ros2</exec_depend>
+  <exec_depend>track_executor_ros2</exec_depend>
+  <exec_depend>refind_executor_ros2</exec_depend>
+  <exec_depend>report_executor_ros2</exec_depend>
+  <exec_depend>bt_capability_plugins</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

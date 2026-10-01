@@ -1,0 +1,15 @@
+<root BTCPP_format="4">
+  <!-- 上报:目标切片+完整目标包;断链时本地缓存(链路恢复回传)。
+       首报完成后由任务管理决定:继续跟踪 / 搜索下一目标 / 召回 -->
+  <BehaviorTree ID="PhaseReport">
+    <Sequence>
+      <SceneSync name="sync_report_scene"/>
+      <ReportAction name="report_target" id="report" goal="{track_state}" result="{report_ack}"/>
+      <Fallback>
+        <ReportUplinkOk name="uplink_ok" ack="{report_ack}"/>
+        <MissionNotify name="notify_cached" event="report_cached"/>
+      </Fallback>
+      <MissionNotify name="notify_done" event="report_done"/>
+    </Sequence>
+  </BehaviorTree>
+</root>

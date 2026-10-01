@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>bt_capability_plugins</name>
+  <version>0.1.0</version>
+  <description>Reusable BehaviorTree.CPP plugins split by UAV capability.</description>
+  <maintainer email="dev@example.com">dev</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>behaviortree_cpp</depend>
+  <depend>bt_nodes</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

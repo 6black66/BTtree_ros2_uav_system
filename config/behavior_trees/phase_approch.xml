@@ -1,0 +1,11 @@
+<root BTCPP_format="4">
+  <!-- 靠近任务区：场景数据就绪后，导航规划并通过控制器飞向任务区域。 -->
+  <BehaviorTree ID="PhaseApproch">
+    <Sequence>
+      <SceneSync name="sync_scene_for_approch"/>
+      <ControllerGimbal name="gimbal_forward" command="forward"/>
+      <NavigationGoTo name="plan_and_approch_target_area" task="{task}" timeout_s="300"/>
+      <MissionNotify name="notify_arrived" event="arrived"/>
+    </Sequence>
+  </BehaviorTree>
+</root>

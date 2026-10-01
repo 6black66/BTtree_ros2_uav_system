@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>uav_ros2_support</name>
+  <version>0.2.0</version>
+  <description>Shared ROS 2 adapter utilities for UAV executors.</description>
+  <maintainer email="dev@example.com">dev</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

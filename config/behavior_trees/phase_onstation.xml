@@ -1,0 +1,12 @@
+<root BTCPP_format="4">
+  <!-- 就位:建立圆盘旋 + 吊舱搜索位 + 数据同步;盘旋由 Controller 常驻保持,
+       与后续所有阶段的传感器行为正交 -->
+  <BehaviorTree ID="PhaseOnStation">
+    <Sequence>
+      <ControllerOrbit name="establish_orbit" radius_m="500"/>
+      <ControllerGimbal name="preset_search" command="preset_search"/>
+      <SceneSync name="sync_onstation_scene"/>
+      <MissionNotify name="notify_on_station" event="on_station"/>
+    </Sequence>
+  </BehaviorTree>
+</root>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>track_executor_ros2</name>
+  <version>0.2.0</version>
+  <description>ROS 2 adapter for the track capability executor.</description>
+  <maintainer email="dev@example.com">dev</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>uav_ros2_support</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

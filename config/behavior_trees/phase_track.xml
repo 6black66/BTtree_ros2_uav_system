@@ -1,0 +1,11 @@
+<root BTCPP_format="4">
+  <!-- Track 规划跟踪动作，Observe 提供检测/跟踪框；失败由状态机进入 refind。 -->
+  <BehaviorTree ID="PhaseTrack">
+    <Sequence>
+      <SceneSync name="sync_track_scene"/>
+      <ControllerGimbal name="gimbal_track" command="track"/>
+      <ObserveAction name="observe_tracking_boxes" id="observe" goal="{confirmed}" result="{tracking_boxes}"/>
+      <TrackAction name="plan_and_track" id="track" goal="{tracking_boxes}" result="{track_state}"/>
+    </Sequence>
+  </BehaviorTree>
+</root>

@@ -1,0 +1,11 @@
+<root BTCPP_format="4">
+  <!-- 待命:自检 → 报待命 → 等任务指派(收到 go_to 任务 SUCCESS → 转场) -->
+  <BehaviorTree ID="PhaseStandby">
+    <Sequence>
+      <ControllerHealthCheck name="health_check"/>
+      <SceneSync name="sync_standby_scene"/>
+      <MissionNotify name="notify_ready" event="ready"/>
+      <MissionWaitForTask name="wait_for_task" task="{task}"/>
+    </Sequence>
+  </BehaviorTree>
+</root>

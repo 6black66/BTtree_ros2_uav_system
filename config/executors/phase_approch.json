@@ -1,0 +1,11 @@
+{
+  "kind": "phase",
+  "name": "phase_approch",
+  "tree": "phase_approch.xml",
+  "libs": [
+    "libbt_navigation_nodes.so",
+    "libbt_controller_nodes.so",
+    "libbt_scene_nodes.so",
+    "libbt_mission_nodes.so"
+  ]
+}

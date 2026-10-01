@@ -1,0 +1,14 @@
+{
+  "names": {
+    "behaviortree_cpp": {
+      "cmake-args": [
+        "-DBTCPP_BUILD_TOOLS=OFF",
+        "-DBTCPP_EXAMPLES=OFF",
+        "-DBTCPP_GROOT_INTERFACE=OFF",
+        "-DBTCPP_SQLITE_LOGGING=OFF",
+        "-DBUILD_TESTING=OFF",
+        "-DPython3_EXECUTABLE=/usr/bin/python3"
+      ]
+    }
+  }
+}

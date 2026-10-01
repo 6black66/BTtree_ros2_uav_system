@@ -1,0 +1,12 @@
+<root BTCPP_format="4">
+  <!-- Find 规划吊舱搜索，Observe 基于实时场景提供检测/跟踪框。 -->
+  <BehaviorTree ID="PhaseFind">
+    <Sequence>
+      <SceneSync name="sync_find_scene"/>
+      <ControllerGimbal name="gimbal_search" command="preset_search"/>
+      <FindAction name="plan_find" id="find" goal="{task}" result="{find_plan}"/>
+      <ObserveAction name="observe_detection_boxes" id="observe" goal="{find_plan}" result="{confirmed}"/>
+      <FindCandidatesFound name="has_candidates" candidates="{confirmed}"/>
+    </Sequence>
+  </BehaviorTree>
+</root>
