@@ -2,12 +2,19 @@
 <package format="3">
   <name>observe_executor_ros2</name>
   <version>0.2.0</version>
-  <description>ROS 2 adapter for the observe capability executor.</description>
+  <description>Shared-memory YOLOX detection and ID-selected fast KCF tracking.</description>
   <maintainer email="dev@example.com">dev</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>uav_ros2_support</depend>
+  <depend>uav_shared_video</depend>
+  <depend>tinyxml2</depend>
+  <depend>rclcpp</depend>
+  <depend>msgs</depend>
+  <depend>rclcpp_action</depend>
+  <depend>libopencv-dev</depend>
+  <depend>libjsoncpp-dev</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

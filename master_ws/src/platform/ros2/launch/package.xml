@@ -7,10 +7,15 @@
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
 
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
   <exec_depend>executor</exec_depend>
   <exec_depend>mission_executor_ros2</exec_depend>
   <exec_depend>flight_controller_ros2</exec_depend>
+  <exec_depend>px4_adapter_ros2</exec_depend>
   <exec_depend>video_gateway_ros2</exec_depend>
   <exec_depend>find_executor_ros2</exec_depend>
   <exec_depend>observe_executor_ros2</exec_depend>

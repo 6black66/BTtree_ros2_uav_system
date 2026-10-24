@@ -1,0 +1,8 @@
+string command_id
+string source
+string command
+---
+# Accepted into adapter transaction processing, not a synchronous autopilot ACK.
+bool accepted
+string command_id
+string message

@@ -1,0 +1,19 @@
+# Aircraft telemetry, QLET table 10. Header age is checked before transmission.
+std_msgs/Header header
+float64 pitch_deg
+float64 roll_deg
+float64 heading_deg
+uint8 gps_year
+uint8 gps_month
+uint8 gps_day
+uint8 gps_hour
+uint8 gps_minute
+uint8 gps_second
+uint8 gps_centisecond
+float64 longitude_deg
+float64 latitude_deg
+uint8 satellites
+float64 altitude_m
+float64 velocity_north_m_s
+float64 velocity_east_m_s
+float64 velocity_down_m_s

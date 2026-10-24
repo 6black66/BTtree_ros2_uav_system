@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>px4_adapter_ros2</name>
+  <version>0.1.0</version>
+  <description>Independent PX4 uXRCE-DDS position/velocity gateway and state feedback.</description>
+  <maintainer email="dev@example.com">dev</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>msgs</depend>
+  <depend>px4_msgs</depend>
+  <depend>uav_ros2_support</depend>
+  <depend>tinyxml2</depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

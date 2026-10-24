@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name="xrce_agent">
+  <!-- serial for physical UART, udp4 for SITL/network. Set the actual host device. -->
+  <param name="transport" type="string" value="serial"/>
+  <param name="port" type="int" value="8888"/>
+  <param name="device" type="string" value="/dev/ttyUSB0"/>
+  <param name="baudrate" type="int" value="921600"/>
+  <!-- Empty selects the locally installed official Agent, or PATH. -->
+  <param name="executable" type="string" value=""/>
+</node>

@@ -1,18 +1,28 @@
 cmake_minimum_required(VERSION 3.16)
 project(observe_executor_ros2)
-
 find_package(ament_cmake REQUIRED)
 find_package(uav_ros2_support REQUIRED)
-
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../master_ws/src/core/domain
-                 ${CMAKE_CURRENT_BINARY_DIR}/uav_domain)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../core
-                 ${CMAKE_CURRENT_BINARY_DIR}/observe_core)
-
+find_package(uav_shared_video REQUIRED)
+find_package(rclcpp_action REQUIRED)
+find_package(OpenCV 4.8 REQUIRED COMPONENTS core imgproc imgcodecs dnn tracking)
+find_package(jsoncpp REQUIRED)
+find_package(tinyxml2 REQUIRED)
+find_package(Threads REQUIRED)
+add_library(observe_perception src/perception.cpp)
+target_compile_features(observe_perception PUBLIC cxx_std_17)
+target_include_directories(observe_perception PUBLIC include ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(observe_perception PUBLIC ${OpenCV_LIBRARIES})
+target_compile_options(observe_perception PRIVATE -Wall -Wextra -Wpedantic)
 add_executable(observe_executor_node src/main.cpp)
-ament_target_dependencies(observe_executor_node uav_ros2_support)
-target_link_libraries(observe_executor_node observe_core)
-
-install(TARGETS observe_executor_node DESTINATION lib/observe_executor_ros2)
-
+ament_target_dependencies(observe_executor_node uav_ros2_support rclcpp_action)
+target_link_libraries(observe_executor_node observe_perception uav_shared_video::uav_shared_video jsoncpp_lib tinyxml2::tinyxml2 Threads::Threads)
+target_compile_options(observe_executor_node PRIVATE -Wall -Wextra -Wpedantic)
+install(TARGETS observe_executor_node observe_perception DESTINATION lib/${PROJECT_NAME})
+if(BUILD_TESTING)
+  enable_testing()
+  add_executable(observe_perception_test test/test_perception.cpp)
+  target_link_libraries(observe_perception_test observe_perception)
+  add_test(NAME observe_perception COMMAND observe_perception_test
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../../../config/node/observe/models)
+endif()
 ament_package()

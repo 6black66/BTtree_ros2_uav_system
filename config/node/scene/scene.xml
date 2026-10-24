@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name="scene">
+  <!-- QL-130TM supplied ViewControlStudio appCfg.ini and series manual agree on track0.
+       track1: visible camera; track2: infrared. Control/status UDP belongs to controller. -->
+  <param name="enabled" type="bool" value="true"/>
+  <param name="input_type" type="string" value="rtsp"/>
+  <param name="source_url" type="string" value="rtsp://192.168.1.160:554/live/track0"/>
+  <!-- Empty: autodetect; for direct UDP/TS use input_type=udp, input_format=mpegts,
+       source_url=udp://0.0.0.0:10008?fifo_size=4096&amp;overrun_nonfatal=1
+       and configure the payload's video destination IP/port accordingly. -->
+  <param name="input_format" type="string" value=""/>
+  <param name="rtsp_transport" type="string" value="tcp"/>
+  <param name="open_timeout_ms" type="int" value="3000"/>
+  <param name="read_timeout_ms" type="int" value="2000"/>
+  <param name="reconnect_delay_ms" type="int" value="1000"/>
+  <param name="frame_timeout_ms" type="int" value="1500"/>
+  <param name="output_encoding" type="string" value="bgr8"/>
+  <param name="max_width" type="int" value="1920"/>
+  <param name="max_height" type="int" value="1080"/>
+  <param name="slot_count" type="int" value="3"/>
+  <!-- Empty derives the base name from the ROS namespace. Actual name has a session suffix. -->
+  <param name="shm_name" type="string" value=""/>
+  <!-- 0: publish all decoded frames. Pixels never travel over ROS topics. -->
+  <param name="max_publish_fps" type="double" value="0.0"/>
+  <param name="file_loop" type="bool" value="false"/>
+  <param name="frame_id" type="string" value="gimbal_camera"/>
+  <param name="frame_topic" type="string" value="scene/frame"/>
+  <param name="state_topic" type="string" value="scene/stream_state"/>
+  <param name="status_period_ms" type="int" value="200"/>
+  <param name="publish_legacy_frame_stamp" type="bool" value="true"/>
+  <param name="frame_stamp_topic" type="string" value="episode/frame_stamp"/>
+</node>

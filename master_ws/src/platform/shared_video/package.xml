@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>uav_shared_video</name>
+  <version>0.1.0</version>
+  <description>ROS-independent local video frame ring with process-shared synchronization.</description>
+  <maintainer email="dev@example.com">dev</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

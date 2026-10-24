@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name="px4_adapter">
+  <!-- No command is sent merely by starting this node. Set false for telemetry-only use. -->
+  <param name="command_enabled" type="bool" value="true"/>
+  <!-- Native PX4 namespace. Empty means /fmu/*; use /px4_1 etc. for named clients.
+       This is independent of the project node's ROS namespace (/uav1 by default). -->
+  <param name="fmu_namespace" type="string" value=""/>
+  <param name="source_system" type="int" value="245"/>
+  <param name="source_component" type="int" value="191"/>
+  <param name="target_system" type="int" value="1"/>
+  <param name="target_component" type="int" value="1"/>
+  <param name="control_period_ms" type="int" value="50"/>
+  <param name="state_period_ms" type="int" value="100"/>
+  <param name="status_timeout_ms" type="int" value="1000"/>
+  <param name="local_timeout_ms" type="int" value="500"/>
+  <param name="setpoint_ttl_ms" type="int" value="500"/>
+  <param name="max_setpoint_ttl_ms" type="int" value="5000"/>
+  <param name="offboard_warmup_ms" type="int" value="1500"/>
+  <param name="ack_timeout_ms" type="int" value="500"/>
+  <param name="command_timeout_ms" type="int" value="5000"/>
+  <param name="command_retries" type="int" value="2"/>
+  <param name="max_position_m" type="double" value="10000.0"/>
+  <param name="max_speed_m_s" type="double" value="20.0"/>
+  <param name="max_yaw_rate_rad_s" type="double" value="2.0"/>
+  <param name="frame_id" type="string" value="map"/>
+  <param name="setpoint_topic" type="string" value="px4/setpoint"/>
+  <param name="command_topic" type="string" value="px4/command"/>
+  <param name="command_service" type="string" value="px4/command_service"/>
+  <param name="state_topic" type="string" value="px4/state"/>
+  <param name="link_topic" type="string" value="px4/link_state"/>
+  <param name="result_topic" type="string" value="px4/command_result"/>
+</node>

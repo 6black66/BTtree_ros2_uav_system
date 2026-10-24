@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name="behavior">
+  <param name="manifests_dir" type="string" value="${config_dir}/executors"/>
+  <param name="transitions" type="string" value="${config_dir}/transitions/transitions.json"/>
+  <param name="plugin_dir" type="string" value="${plugin_dir}"/>
+</node>

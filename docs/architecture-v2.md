@@ -7,12 +7,14 @@ uav_system/
 |-- config/
 |   |-- behavior_trees/        # 每个状态一棵 BehaviorTree.CPP XML
 |   |-- executors/             # 阶段到多个能力插件的映射
-|   `-- transitions/           # 顶层状态机转换
+|   |-- transitions/           # 顶层状态机转换
+|   `-- node/                  # <节点名>/<节点名>.xml，各节点运行配置
 |-- master_ws/src/
 |   |-- behavior/              # PhaseManager、行为执行器和公共 BT ROS 适配
 |   |-- mission/               # 任务调度
 |   |-- controller/            # 独立 ROS 2 包；飞机/吊舱指令和状态反馈
 |   |-- scene/                 # 实时视频/场景数据入口
+|   |-- px4_adapter/           # 独立 uXRCE-DDS 飞控适配器
 |   |-- core/                  # 领域模型与无 ROS 框架
 |   `-- platform/ros2/         # 消息、公共支持和 bringup
 |-- exector_ws/src/
@@ -88,5 +90,27 @@ ROS 2 entrypoint -> adapter -> executor core -> domain
 
 ## 当前实现范围
 
-当前节点为可配置占位代码，用于演示插件动态加载和状态切换。真实路径规划、视频
-解码、检测、跟踪、飞机控制和吊舱控制应在对应边界内替换，不应写入行为树 XML。
+controller 已接入 QLET UDP 吊舱控制，scene 已接入 FFmpeg 视频解码和共享内存。
+其余节点主要为可配置占位代码，用于演示插件动态加载和状态切换。
+真实路径规划、检测、跟踪和飞机控制应在对应边界内替换，不应写入行为树 XML。
+
+## 吊舱控制与视频边界
+
+`controller` 通过 UDP 实现 QLET 单次请求式控制和状态反馈，对项目内提供 ROS 2
+命令、状态、结果和链路话题。导航接口仍为模拟实现。
+`scene` 独立接收 RTSP/UDP 视频，解码后写入公共 `uav_shared_video` 环形共享内存，
+发布帧引用和视频流状态；消费者使用公共读取器校验帧会话和序号。
+两者不复用控制 socket，也不以控制状态代替视频流状态。
+
+所有节点运行配置统一放置在 `config/node/<节点名>/<节点名>.xml`，由
+`system.launch.py` 加载为 ROS 参数；可通过 `config_dir` 指定配置根目录。
+controller、scene 单独运行也支持 `config_file` 指向 XML。详见
+[controller.md](controller.md) 和 [scene.md](scene.md)。
+
+## PX4 适配器
+
+`px4_adapter_ros2` 通过官方 Micro XRCE-DDS Agent 与 PX4 v1.17 原生消息连接，
+对内提供 `px4/setpoint`、`px4/command`、`px4/state`、结果和链路话题。
+配置位于 `config/node/px4_adapter` 与 `config/node/xrce_agent`，启动入口为
+`bringup/px4.launch.py`。原 controller 的模拟导航接口尚未迁移；真实飞控控制
+使用新适配器接口。详见 [px4_adapter.md](px4_adapter.md)。

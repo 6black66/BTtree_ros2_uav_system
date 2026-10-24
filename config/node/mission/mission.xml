@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name="mission">
+  <param name="target_namespace" type="string" value="${uav_namespace}"/>
+  <param name="auto_start" type="bool" value="true"/>
+  <param name="auto_start_delay_ms" type="int" value="1000"/>
+</node>

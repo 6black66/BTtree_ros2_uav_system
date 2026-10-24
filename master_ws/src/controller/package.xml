@@ -9,5 +9,6 @@
   <depend>rclcpp</depend>
   <depend>msgs</depend>
   <depend>std_msgs</depend>
+  <depend>tinyxml2</depend>
   <export><build_type>ament_cmake</build_type></export>
 </package>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name="find">
+  <param name="work_ms" type="int" value="1500"/>
+  <param name="force_failure" type="bool" value="false"/>
+</node>

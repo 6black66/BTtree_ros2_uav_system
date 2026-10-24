@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name="observe">
+  <param name="frame_topic" type="string" value="scene/frame"/>
+  <param name="slow_topic" type="string" value="observe/slow/detections"/>
+  <param name="fast_topic" type="string" value="observe/fast/result"/>
+  <param name="request_topic" type="string" value="observe/fast/request"/>
+  <!-- Paths relative to this XML. model_dir can override the base directory. -->
+  <param name="model_dir" type="string" value=""/>
+  <param name="model_path" type="string" value="models/object_detection_yolox_2022nov.onnx"/>
+  <param name="labels_path" type="string" value="models/coco.names"/>
+  <param name="confidence_threshold" type="double" value="0.45"/>
+  <param name="nms_threshold" type="double" value="0.45"/>
+  <param name="max_detections" type="int" value="100"/>
+  <param name="slow_period_ms" type="int" value="500"/>
+  <param name="fast_period_ms" type="int" value="33"/>
+  <param name="opencv_threads" type="int" value="2"/>
+  <param name="max_frame_age_ms" type="double" value="1000.0"/>
+  <param name="max_seed_age_ms" type="double" value="1500.0"/>
+  <param name="snapshot_cache_size" type="int" value="4"/>
+  <param name="association_iou" type="double" value="0.3"/>
+  <param name="association_ttl_ms" type="double" value="2000.0"/>
+  <param name="action_timeout_ms" type="int" value="4000"/>
+</node>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name="refind">
+  <param name="work_ms" type="int" value="800"/>
+  <param name="force_failure" type="bool" value="false"/>
+</node>
